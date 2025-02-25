@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home Page</title>
+</head>
+<body>
+<h1>Welcome!</h1>
+<p>This is the home page.  Everyone can access this page.</p>
+
+<div th:if="${#authorization.expression('isAuthenticated()')}">
+    <p>You are logged in!</p>
+    <p>Go to <a th:href="@{/admin}">Admin Page</a></p> <form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+</div>
+
+<div th:unless="${#authorization.expression('isAuthenticated()')}">
+    <p>You are not logged in.</p>
+    <p>Go to <a th:href="@{/login}">Login Page</a></p>
+</div>
+
+</body>
+</html>
