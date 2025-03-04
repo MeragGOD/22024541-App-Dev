@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Page</title>
+</head>
+<body>
+<h1>Admin Page</h1>
+<p>This page is only accessible to users with the ADMIN role.</p>
+
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+<p>Go to <a th:href="@{/}">Home Page</a></p> </body>
+</html>
